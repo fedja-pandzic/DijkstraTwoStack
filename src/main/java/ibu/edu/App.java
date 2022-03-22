@@ -28,28 +28,11 @@ public class App
                 operators.push(tokens[i]);
                 String op = operators.pop();
                 double v = values.pop();
-                double newV;
-                if(op.equals("+")) {
-                    newV = values.pop() + v;
-                    values.push(newV);
-                    values.displayStack();
-                }
-                else if(op.equals("-")) {
-                    newV = values.pop() - v;
-                    values.push(newV);
-                    values.displayStack();
-                }
-                else if(op.equals("*")) {
-                    newV = values.pop() * v;
-                    values.push(newV);
-                    values.displayStack();
-                }
-                else if(op.equals("/")) {
-                    newV = values.pop() / v;
-                    values.push(newV);
-                    values.displayStack();
-                }
-
+                if(op.equals("+")) v = values.pop() + v;
+                else if(op.equals("-")) v =values.pop() - v;
+                else if(op.equals("*")) v =values.pop() * v;
+                else if(op.equals("/")) v =values.pop() / v;
+                values.push(v);
             }
             else {
                 values.push(Double.parseDouble(tokens[i]));
